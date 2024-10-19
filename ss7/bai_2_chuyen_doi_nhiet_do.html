@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+<p id="C"></p>
+<p id="F" style="color: blue"></p>
+<script>
+    let doC = Number(prompt("Mời nhập độ C: "));
+    let doF = (doC * 9 + 32) / 5;
+    document.getElementById("C").innerHTML = "Độ C là: " + doC;
+    document.getElementById("F").innerHTML = "Kết quả độ F là: " + doF;
+</script>
+</body>
+</html>
