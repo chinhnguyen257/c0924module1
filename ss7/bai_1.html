@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label>Điểm Lý</label>
+    <input type="number" id="Physic" placeholder="Nhập điểm Lý">
+    <br>
+    <label>Điểm Hóa</label>
+    <input type="number" id="Chemistry" placeholder="Nhập điểm Hóa">
+    <br>
+    <label>Điểm Sinh</label>
+    <input type="number" id="Biology" placeholder="Nhập điểm Sinh">
+    <br>
+    <button onclick="Average()">Tính điểm trung bình</button>
+</form>
+<script>
+    function Average() {
+        let ly = parseFloat(document.getElementById("Physic").value)
+        let hoa = parseFloat(document.getElementById("Chemistry").value)
+        let sinh = parseFloat(document.getElementById("Biology").value)
+        let diemTB = (ly + hoa + sinh)/3
+        alert("Điểm trung bình của bạn là: " + diemTB)
+    }
+</script>
+</body>
+</html>
