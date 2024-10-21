@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình tròn</title>
+</head>
+<body>
+<p id="banKinh"></p>
+<p><b id="dienTich1" style="color: brown"> </b></p>
+
+<p id="duongKinh"></p>
+<p><b id="dienTich2" style="color: brown"> </b></p>
+
+<script>
+    if (confirm("Thông tin muốn nhập là bán kính?")) {
+        let r = Number(prompt("Mời nhập bán kính hình tròn: "));
+        const PI = 3.14;
+        let result1 = PI * r ** 2; //công thức tính
+        document.getElementById("banKinh").innerHTML = "Bán kính là: " + r;
+        document.getElementById("dienTich1").innerHTML = "Diện tích hình tròn là: " + result1.toFixed(2);
+    } else {
+        let d = Number(prompt("Mời nhập đường kính hình tròn: "));
+        const PI = 3.14;
+        let result2 = PI * (d / 2) ** 2; //công thức tính
+        document.getElementById("duongKinh").innerHTML = "Đường kính là: " + d;
+        document.getElementById("dienTich2").innerHTML = "Diện tích hình tròn là: " + result2.toFixed(2);
+    }
+</script>
+</body>
+</html>
