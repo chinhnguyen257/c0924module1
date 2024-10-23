@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    // biểu thức phương trình bậc 1: ax + b =0
+    // nếu a == 0 và b !==0 => Phương trình vô nghiệm
+    // nếu a == 0 và b ==0 => Phương trình có vô số nghiệm
+
+    let a = Number(prompt("Nhập giá trị a: "));
+    let b = Number(prompt("Nhập giá trị b: "));
+    let result = -b / a;
+
+    if (a === 0 && b === 0) {
+        document.write("Kết quả: Phương trình có vô số nghiệm");
+    } else if (a === 0 && b !== 0) {
+        document.write("Kết quả: Phương trình vô nghiệm");
+    } else {
+        document.write("Kết quả: " + result.toFixed(2));
+    }
+
+</script>
 </body>
 </html>
