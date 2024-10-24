@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bieu thuc phuong trinh bac 2: ax^2 + bx + c = 0, với a!==0
+    // delta = b^2 - 4ac
+    // delta > 0 => Phương trình có 2 nghiệm, x1 = -b+Math.sqrt(delta)/2a và x2 = -b-Math.sqrt(delta)/2a
+    // delta = 0 => Phương trình có 2 nghiệm, x1=x2=-b/a
+    // delta < 0 => Phương trình vô nghiệm
+    let a = +prompt("Nhập giá trị a (ĐK: a!==0)")
+    if (a === 0) {
+        alert("Giá trị nhập không hợp lệ. Vui lòng nhập lại!")
+    }
+    else {
+        let b = +prompt("Nhập giá trị b")
+        let c = +prompt("Nhập gía trị c")
+        let delta = b * b - 4 * a *c
+        if (delta < 0) {
+            document.wrrite("Phương trình vô nghiệm")
+        } else if (delta === 0) {
+            let x = -b / (2 * a)
+            document.write("Phương trình có nghiệm kép x1=x2= " + x)
+        } else {
+            let x1 = ((-b + Math.sqrt(delta)) / (2 * a)).toFixed(2)
+            let x2 = ((-b + Math.sqrt(delta)) / (2 *a)).toFixed(2)
+            document.write("Phương trình có 2 nghiệm: " + "x1 = " + x1 + " ; " + "x2 = " + x2 )
+        }
+    }
+</script>
+</body>
+</html>
