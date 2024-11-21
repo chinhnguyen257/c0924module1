@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>SỔ TIẾT KIỆM</h1>
+<input id="code" placeholder="Nhập mã sổ">
+<input id="type" placeholder="Nhập loại tiết kiệm">
+<input id="name" placeholder="Nhập Họ và tên">
+<input id="number" placeholder="Nhập chứng minh nhân dân">
+<input id="date" placeholder="Nhập ngày mở sổ">
+<input id="price" placeholder="Nhập số tiền gửi">
+<button onclick="addProduct()">Thêm</button>
+<p>
+    <span>Tổng số người gửi tiết kiệm là: </span>
+    <b style="color: Blue"><span id="count"></span></b>
+</p>
+<p id="count"></p>
+<p id="table"></p>
+<script>
+    class Product {
+        constructor(code, type, name, number, date, price) {
+            this.code=code
+            this.type=type
+            this.name=name
+            this.number=number
+            this.date=date
+            this.price=price
+
+        }
+    }
+    let maSo1 = new Product("TK-001", "Daihan", "Chinh", "25072001", "10/11/2024", "30000")
+    let maSo2 = new Product("TK-002", "Daihan", "Duc", "200121334", "2/2/2024", "20000")
+    let maSo3 = new Product("TK-003", "Nganhan", "Tung", "09081213", "3/4/2020", "40000")
+    let productList = [maSo1, maSo2, maSo3]
+
+    function showTable() {
+        let tableString = `<table border="1" style="text-align: center">
+      <tr>
+        <th>STT</th>
+        <th>Mã sổ</th>
+        <th>Loại tiết kiệm</th>
+        <th>Họ và tên</th>
+        <th>Chứng minh nhân dân</th>
+        <th>Ngày mở sổ</th>
+        <th>Số tiền gửi</th>
+        <th>Chỉnh sửa</th>
+        <th>Delete</th>
+      </tr>`
+
+        for (let i = 0; i < productList.length; i++) {
+            tableString += `<tr>
+        <td>${i + 1}</td>
+        <td>${productList[i].code}</td>
+        <td>${productList[i].type}</td>
+        <td>${productList[i].name}</td>
+        <td>${productList[i].number}</td>
+        <td>${productList[i].date}</td>
+        <td>${productList[i].price}</td>
+        <td><button onclick = "editProduct(${i})">Chỉnh sửa</button></td>
+        <td><button onclick = "deleteProduct(${i})">Xóa</button></td>
+      </tr>`;
+        }
+        tableString += `</table>`;
+        document.getElementById("table").innerHTML = tableString;
+        document.getElementById("count").innerHTML = productList.length
+    }
+    showTable()
+    function addProduct() {
+        let newCode = document.getElementById("code").value;
+        let newType = document.getElementById("type").value;
+        let newName = document.getElementById("name").value;
+        let newNumber = document.getElementById("number").value;
+        let newDate = document.getElementById("date").value;
+        let newPrice = document.getElementById("price").value;
+        if (newCode != "" && newType != "" && newName != "" && newNumber != "" && newDate != "" && newPrice) {
+            let newProduct = new Product(newCode, newType, newName, newNumber, newDate, newPrice);
+            productList.push(newProduct);
+        } else {
+            alert("Mời nhập thông tin");
+        }
+        document.getElementById("code").value = "";
+        document.getElementById("type").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("number").value = ""
+        document.getElementById("date").value = ""
+        document.getElementById("price").value = ""
+        showTable()
+    }
+    function editProduct(index) {
+        let editCode = prompt("Mời nhập mã sản phẩm mới");
+        let editType = prompt("Mời nhập loại tiền gửi");
+        let editName = prompt("Mời nhập họ và tên");
+        let editNumber = prompt("Mời nhập chứng minh nhân dân");
+        let editDate = prompt("Mời nhập ngày mở");
+        let editPrice = prompt("Mời nhập số tiền gửi");
+        productList[index] = new Product(editCode, editType, editName, editNumber, editDate, editPrice);
+        showTable();
+    }
+    function deleteProduct(index) {
+        let xacNhan = confirm(
+            `Bạn có chắc muốn xóa sản phẩm ${productList[index].name} chứ???`
+        );
+
+        if (xacNhan) {
+            productList.splice(index, 1);
+            showTable();
+        }
+    }
+</script>
+</body>
+</html>
